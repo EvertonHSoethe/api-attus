@@ -1,0 +1,10 @@
+{
+  "caseNumber": "123456-77-88",
+  "title": "Cobrança de dívida contra João da Silva",
+  "description": "João da Silva comprou um carro fiat Uno de Pedro Batista no valor de 10 mil reais em 10x de 1000 reais, mas não pagou nenhuma parcela",
+  "type": "CIVIL",
+  "status": "OPEN",
+  "plaintiff": "Pedro Batista",
+  "defendant": "Dr. Reginaldo Coelho",
+  "filingDate": "2026-07-17"
+}
