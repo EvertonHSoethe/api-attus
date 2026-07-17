@@ -72,10 +72,10 @@ Base path: `/api/v1/cases`
 
 **CaseTypeEnum**
 
-| Value            | Description          |
-|------------------|----------------------|
-| `CIVIL`          | Civil proceedings    |
-| `CRIMINAL`       | Criminal proceedings |
+| Value       | Description          |
+|-------------|----------------------|
+| `CIVIL`     | Civil proceedings    |
+| `CRIMINAL`  | Criminal proceedings |
 
 ---
 
@@ -91,15 +91,14 @@ POST /api/v1/cases
 
 ```json
 {
-  "caseNumber": "2024-001",
-  "title": "Smith v. Acme Corp.",
-  "description": "Wrongful termination case",
+  "caseNumber": "123456-77-88",
+  "title": "Cobrança de dívida contra João da Silva",
+  "description": "João da Silva comprou um carro fiat Uno de Pedro Batista no valor de 10 mil reais em 10x de 1000 reais, mas não pagou nenhuma parcela",
   "type": "CIVIL",
   "status": "OPEN",
-  "plaintiff": "John Smith",
-  "defendant": "Acme Corp.",
-  "filingDate": "2024-01-15",
-  "closingDate": null
+  "plaintiff": "Pedro Batista",
+  "defendant": "Dr. Reginaldo Coelho",
+  "filingDate": "2026-07-17"
 }
 ```
 
@@ -172,6 +171,42 @@ PUT /api/v1/cases/{id}
 ```
 
 Same body as POST. Replaces all fields.
+
+| Status | Description                |
+|--------|----------------------------|
+| `200`  | Case updated               |
+| `400`  | Validation error           |
+| `404`  | Case not found             |
+| `409`  | Case number already in use |
+
+---
+
+#### Partially update a case
+
+```
+PATCH /api/v1/cases/{id}
+```
+
+Only the fields included in the request body are updated. Omitted fields retain their current values.
+
+```json
+{
+  "title": "Updated Title",
+  "status": "CLOSED"
+}
+```
+
+| Field         | Required | Type         | Constraints          |
+|---------------|----------|--------------|----------------------|
+| `caseNumber`  | no       | string       | max 50 chars, unique |
+| `title`       | no       | string       | max 150 chars        |
+| `description` | no       | string       | max 1000 chars       |
+| `type`        | no       | `CaseType`   |                      |
+| `status`      | no       | `CaseStatus` | sets `closingDate` automatically when `CLOSED` or `ARCHIVED` |
+| `plaintiff`   | no       | string       | max 150 chars        |
+| `defendant`   | no       | string       | max 150 chars        |
+| `filingDate`  | no       | date         | ISO-8601             |
+| `closingDate` | no       | date         | ISO-8601             |
 
 | Status | Description                |
 |--------|----------------------------|
