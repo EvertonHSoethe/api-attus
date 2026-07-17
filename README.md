@@ -2,10 +2,24 @@
 
 REST API for managing legal cases, built with Spring Boot 4, JPA and an in-memory H2 database.
 
-## Requirements
+## Technologies
 
-- Java 21+
-- Maven 3.9+ (or use the included `mvnw`)
+| Technology | Version | Purpose |
+|---|---|---|
+| **Java** | 21 | Language and runtime |
+| **Spring Boot** | 4.1.0 | Application framework |
+| **Spring Web MVC** | — | REST layer |
+| **Spring Data JPA** | — | Persistence and repository abstraction |
+| **Hibernate** | — | JPA implementation / ORM |
+| **H2 Database** | — | In-memory relational database |
+| **Bean Validation** | — | Request payload validation |
+| **MapStruct** | 1.6.3 | Entity ↔ DTO mapping |
+| **Lombok** | — | Boilerplate reduction |
+| **SpringDoc OpenAPI** | 2.8.9 | Swagger UI and OpenAPI spec generation |
+| **JUnit 5** | — | Unit and integration testing |
+| **Mockito** | — | Test doubles / mocking |
+| **Instancio** | 5.4.0 | Randomized test data generation |
+| **Maven** | 3.9+ | Build tool and dependency management |
 
 ## Running locally
 
