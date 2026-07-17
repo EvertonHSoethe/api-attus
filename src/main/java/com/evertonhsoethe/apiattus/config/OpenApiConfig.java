@@ -16,6 +16,6 @@ public class OpenApiConfig {
                         .title("Legal Case Management API")
                         .description("REST API for managing legal cases.")
                         .version("1.0.0")
-                        .contact(new Contact().name("Everton").email("everton@example.com")));
+                        .contact(new Contact().name("Everton").email("evertonhsoethe@gmail.com")));
     }
 }
